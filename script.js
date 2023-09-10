@@ -14,12 +14,11 @@ function startTime() {
 	var minute = fixZeroes(today.getMinutes());
 	document.getElementById('fyd-day').innerHTML = "It is<br /><strong>" + day.toUpperCase() + "<br /><i>" + ampm + "</i></strong>";
 	document.getElementById('fyd-date').innerHTML = "<small>" + date + suffix + " " + month + " " + year + "</small>";
-	// document.getElementById('fyd-time').innerHTML = hour + ":" + minute;
 	setTimeout(startTime, 60000);
 }
 
 function fixZeroes(i) {
-	if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+	if (i < 10) {i = "0" + i};
 	return i;
 }
 
