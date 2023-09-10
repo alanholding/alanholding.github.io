@@ -1,0 +1,18 @@
+body {
+	background-color: #224;
+	background-repeat: true;
+	color: #fff;
+	font-family: sans-serif;
+	font-size: 7em;
+	text-align: center;
+}
+strong {
+	color: #ffff22;
+}
+p {
+	line-height: 1em;
+	margin: 0;
+}
+div {
+	margin: 0.6em;
+}
