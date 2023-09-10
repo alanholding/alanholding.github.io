@@ -1,17 +1,17 @@
 function startTime() {
-	let monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"
+	var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"
 	];
-	let dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
-	let today = new Date();
-	let year = today.getFullYear();
-	let month = monthNames[today.getMonth()];
-	let date = today.getDate();
-	let suffix = getOrdinal(date);
-	let day = dayNames[today.getDay()];
-	let hour = today.getHours();
-	let hourTwelve = hour % 12
-	let ampm = getAMPMPhrase(hour);
-	let minute = fixZeroes(today.getMinutes());
+	var dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+	var today = new Date();
+	var year = today.getFullYear();
+	var month = monthNames[today.getMonth()];
+	var date = today.getDate();
+	var suffix = getOrdinal(date);
+	var day = dayNames[today.getDay()];
+	var hour = today.getHours();
+	var hourTwelve = hour % 12
+	var ampm = getAMPMPhrase(hour);
+	var minute = fixZeroes(today.getMinutes());
 	document.getElementById('fyd-day').innerHTML = "It is<br /><strong>" + day.toUpperCase() + "<br /><i>" + ampm + "</i></strong>";
 	document.getElementById('fyd-date').innerHTML = "<small>" + date + suffix + " " + month + " " + year + "</small>";
 	// document.getElementById('fyd-time').innerHTML = hour + ":" + minute;
