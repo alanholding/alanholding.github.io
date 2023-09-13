@@ -10,11 +10,12 @@ function startTime() {
 	var day = dayNames[today.getDay()];
 	var hour = today.getHours();
 	var hourTwelve = hour % 12
-	var ampm = getAMPMPhrase(hour);
+	var ampm = (hour > 11 ? "pm" : "am");
 	var minute = fixZeroes(today.getMinutes());
-	document.getElementById('fyd-day').innerHTML = "It is<br /><strong>" + day.toUpperCase() + "<br /><i>" + ampm + "</i></strong>";
-	document.getElementById('fyd-date').innerHTML = "<small>" + date + suffix + " " + month + " " + year + "</small>";
-	setTimeout(startTime, 60000);
+	document.getElementById('fyd-day').innerHTML = "<small>It is</small><br /><strong>" + day.toUpperCase() + "</strong>";
+	document.getElementById('fyd-date').innerHTML = "<small>" + date + "<sup>" + suffix + "</sup> " + month + " " + year + "</small>";
+	document.getElementById('fyd-time').innerHTML = hourTwelve + ":" + minute + " " + ampm;
+	setTimeout(startTime, 1000);
 }
 
 function fixZeroes(i) {
@@ -34,14 +35,4 @@ function getOrdinal(i) {
 	  default:
 	    return "th";
 	}
-}
-
-function getAMPMPhrase(i) {
-	if ((i >= 0 && i < 5) || (i >= 22 && i < 24)) {return "night time"};
-	if (i >= 5 && i < 8) {return "early morning"};
-	if (i >= 8 && i < 12) {return "morning"};
-	if (i >= 12 && i < 13) {return "noon"};
-	if (i >= 13 && i < 17) {return "afternoon"};
-	if (i >= 17 && i < 20) {return "evening"};
-	if (i >= 20 && i < 22) {return "late evening"};
 }
