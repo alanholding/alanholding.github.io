@@ -9,12 +9,12 @@ function startTime() {
 	var suffix = getOrdinal(date);
 	var day = dayNames[today.getDay()];
 	var hour = today.getHours();
-	var hourTwelve = hour % 12
+	var hourForDisplay = getHourForDisplay(hour);
 	var ampm = (hour > 11 ? "pm" : "am");
 	var minute = fixZeroes(today.getMinutes());
 	document.getElementById('fyd-day').innerHTML = "<small>It is</small><br /><strong>" + day.toUpperCase() + "</strong>";
 	document.getElementById('fyd-date').innerHTML = "<small>" + date + "<sup>" + suffix + "</sup> " + month + " " + year + "</small>";
-	document.getElementById('fyd-time').innerHTML = hourTwelve + ":" + minute + " " + ampm;
+	document.getElementById('fyd-time').innerHTML = hourForDisplay + ":" + minute + " " + ampm;
 	setTimeout(startTime, 1000);
 }
 
@@ -35,4 +35,10 @@ function getOrdinal(i) {
 	  default:
 	    return "th";
 	}
+}
+
+function getHourForDisplay(i) {
+	var h = i % 12;
+	// changes the hour to show 12 instead of 0, as 0:23pm looks weird
+	return (h == 0 ? 12 : h);
 }
